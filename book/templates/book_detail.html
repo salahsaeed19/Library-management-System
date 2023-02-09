@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+{% block breadcrumb %}
+    <ol class="breadcrumb my-4">
+        <li class="breadcrumb-item "><a href="{% url 'dashboard' %}">Books</a></li>
+        <li class="breadcrumb-item ">{{ book.name }}</li>
+    </ol>
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-6">
+        <img src="{{ book.cover_photo.url }}" alt="">
+        
+    </div>
+    <div class="col-6">
+        <h3>About the book:</h3>
+        <p>{{ book.description }}</p>
+        <h3>Author:</h3>
+        <p>{{ book.author }}</p>
+        <h3>Published:</h3>
+        <p>{{ book.release_date }}</p>
+        <h3>Rating:</h3>
+        <h4>{{ book.rating }}/5<img src="https://t4.ftcdn.net/jpg/02/74/86/39/360_F_274863915_4JnfDXwTaTsjg5w5e7keElOipBswjAte.jpg" alt="" width="150"></h4>
+        <br>
+        <a href="{{ book.book_file.url }}" Download class="btn btn-secondary btn-lg btn-block">
+            Download 
+        </a>
+    </div>
+</div>
+{% endblock %}

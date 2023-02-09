@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block breadcrumb %} 
+<ol class="breadcrumb my-4">
+    <li class="breadcrumb-item "><a href="{% url 'dashboard' %}">Books</a></li>
+    <li class="breadcrumb-item ">Add New Book</li>
+</ol>
+{% endblock %}
+{% block content %}
+    <section class="tab-pane fade show active">
+        <div class="container">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_name">Name Book</label>
+                    <input type="text" class="form-control" id="id_name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="id_author">Author</label>
+                    <input type="text" class="form-control" id="id_author" name="author">
+                </div>
+                <div class="form-group">
+                    <label for="id_description">Description</label>
+                    <textarea class="form-control" id="id_description" name="description" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="id_rating">Rating</label>
+                    <input type="number" class="form-control" id="id_rating" name="rating">
+                </div>
+                <div class="form-group">
+                    <label for="id_release_date">Release Date</label>
+                    <input type="date" class="form-control" id="id_release_date" name="release_date">
+                </div>
+                <div class="form-group">
+                    <label for="id_cover_photo">Cover Photo</label>
+                    <input type="file" class="form-control" id="id_cover_photo" name="cover_photo">
+                </div>
+                <div class="form-group">
+                    <label for="id_book_file">Book File</label>
+                    <input type="file" class="form-control" id="id_book_file" name="book_file">
+                </div>
+                <br>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block mb-4">
+                        Add
+                    </button>
+                </div>
+                <br>
+            </form>
+        </div>
+    </section> 
+{% endblock %}

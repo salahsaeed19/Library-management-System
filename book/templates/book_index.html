@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+{% block breadcrumb %}
+    <ol class="breadcrumb my-4">
+        <li class="breadcrumb-item active">Books</li>
+    </ol>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        {% for b in books %}
+            <div class="col-md-4">
+                <div class="card mb-2">
+                    <img class="card-img-top" src="{{ b.cover_photo.url }}" width="100" height="400">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ b.name }}</h5>
+                        <p class="card-text">{{ b.author }}</p>
+                        <a href="{% url 'book_detail' b.pk %}" class="btn btn-primary btn-lg btn-block">
+                            Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
